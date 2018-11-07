@@ -1,0 +1,39 @@
+.App {
+  font-family: 'Poor Story';
+}
+
+img.poke-search {
+  display: block;
+  margin: auto;
+  width: 400px;
+  border: 3px black;
+  padding: 30px;
+}
+
+.searchBox {
+  display: block;
+  margin: 30px;
+  padding: 20px;
+  text-align: center;
+}
+
+.search-results-title {
+  margin-left: 10%;
+  font-size: 3rem;
+}
+
+#grass {
+color: green;
+}
+
+.pokemon-item {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  font-size: 1rem;
+}
+
+.pokemon-item-img {
+  width: 100px;
+}
