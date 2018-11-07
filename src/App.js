@@ -1,12 +1,36 @@
 // @format
 
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SearchResults from './components/SearchResults.jsx';
 
 class App extends React.Component {
   render() {
+    const apiCall = {
+      count: 811,
+      previous: null,
+      results: [
+        {
+          url: 'http://pokeapi.salestock.net/api/v2/pokemon/1/',
+          name: 'bulbasaur',
+        },
+        {
+          url: 'http://pokeapi.salestock.net/api/v2/pokemon/2/',
+          name: 'ivysaur',
+        },
+        {
+          url: 'http://pokeapi.salestock.net/api/v2/pokemon/3/',
+          name: 'venusaur',
+        },
+        {
+          url: 'http://pokeapi.salestock.net/api/v2/pokemon/4/',
+          name: 'charmander',
+        },
+      ],
+    };
+
+    const {results} = apiCall;
+
     return (
       <div className="App">
         <link
@@ -21,7 +45,7 @@ class App extends React.Component {
         <h2 className="search-results-title" id="grass">
           Grass
         </h2>
-        <SearchResults />
+        <SearchResults testResults={results} />
       </div>
     );
   }
