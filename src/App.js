@@ -4,6 +4,9 @@ import React, {Component} from 'react';
 import './App.css';
 import SearchResults from './components/SearchResults.jsx';
 
+function capitalize(word) {
+return word.charAt(0).toUpperCase() + word.name.slice(1).toLowerCase()}
+
 class App extends React.Component {
   render() {
     const apiCall = {
