@@ -23,8 +23,7 @@ it('should render an <li> element for every pokemon in props', () => {
   const wrapper = Enzyme.shallow(
     <SearchResults resultsPokeNames={searchResultsNames} />,
   );
-  expect(wrapper.find('li').length).toEqual(searchResultsNames.length);
-  4;
+  expect(wrapper.find('li').length).toBe(searchResultsNames.length);
 });
 
 it('should display the Pokemon name for each <li> element, capitalised', () => {

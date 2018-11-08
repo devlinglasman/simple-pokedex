@@ -8,22 +8,24 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      errorStatus: '',
       pokemonSearchResults: [],
     };
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     let resultsPokeNames = [];
-    fetch('https://pokeapi.co/api/v2/type/grass/')
-      .then(results => {
-        return results.json();
-      })
-      .then(results => {
+    const response = await fetch('https://pokeapi.co/api/v2/type/grass/');
+    if (response.status >= 400) {
+      this.setState({errorStatus: 'Error fetching pokemon'});
+    } else {
+      response.json().then(results => {
         resultsPokeNames = results.pokemon.slice(0, 6).map(eachResult => {
           return eachResult.pokemon.name;
         });
         this.setState({pokemonSearchResults: resultsPokeNames});
       });
+    }
   }
 
   render() {
