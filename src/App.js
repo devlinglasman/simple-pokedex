@@ -4,10 +4,26 @@ import React, {Component} from 'react';
 import './App.css';
 import SearchResults from './components/SearchResults.jsx';
 
-function capitalize(word) {
-return word.charAt(0).toUpperCase() + word.name.slice(1).toLowerCase()}
-
 class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      pokemonSearchResults: [],
+    };
+  }
+
+  componentDidMount() {
+    fetch('https://pokeapi.co/api/v2/pokemon/1/')
+      .then(results => {
+        return results.json();
+      })
+      .then(data => {
+        let pokemon = data.name;
+        this.setState({pokemonSearchResults: pokemon});
+        console.log('state', this.state.pokemonSearchResults);
+      });
+  }
+
   render() {
     const apiCall = {
       count: 811,
