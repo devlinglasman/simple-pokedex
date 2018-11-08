@@ -13,43 +13,20 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://pokeapi.co/api/v2/pokemon/1/')
+    let resultsPokeNames = [];
+    fetch('https://pokeapi.co/api/v2/type/grass/')
       .then(results => {
         return results.json();
       })
-      .then(data => {
-        let pokemon = data.name;
-        this.setState({pokemonSearchResults: pokemon});
-        console.log('state', this.state.pokemonSearchResults);
+      .then(results => {
+        resultsPokeNames = results.pokemon.slice(0, 6).map(eachResult => {
+          return eachResult.pokemon.name;
+        });
+        this.setState({pokemonSearchResults: resultsPokeNames});
       });
   }
 
   render() {
-    const apiCall = {
-      count: 811,
-      previous: null,
-      results: [
-        {
-          url: 'http://pokeapi.salestock.net/api/v2/pokemon/1/',
-          name: 'bulbasaur',
-        },
-        {
-          url: 'http://pokeapi.salestock.net/api/v2/pokemon/2/',
-          name: 'ivysaur',
-        },
-        {
-          url: 'http://pokeapi.salestock.net/api/v2/pokemon/3/',
-          name: 'venusaur',
-        },
-        {
-          url: 'http://pokeapi.salestock.net/api/v2/pokemon/4/',
-          name: 'charmander',
-        },
-      ],
-    };
-
-    const {results} = apiCall;
-
     return (
       <div className="App">
         <link
@@ -64,10 +41,16 @@ class App extends React.Component {
         <h2 className="search-results-title" id="grass">
           Grass
         </h2>
-        <SearchResults testResults={results} />
+        <SearchResults resultsPokeNames={this.state.pokemonSearchResults} />
       </div>
     );
   }
 }
 
+function setPokemonResultsArray(pokemonResults) {
+  let pokemonResultsNames = [];
+  return pokemonResults.map(eachResult => {
+    pokemonResultsNames.push(eachResult);
+  });
+}
 export default App;
