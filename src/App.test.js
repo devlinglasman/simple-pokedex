@@ -24,37 +24,37 @@ describe('App', () => {
             pokemon: [
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-1',
                 },
               },
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-2',
                 },
               },
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-3',
                 },
               },
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-4',
                 },
               },
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-5',
                 },
               },
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-6',
                 },
               },
               {
                 pokemon: {
-                  name: 'sandshrew',
+                  name: 'poke-7',
                 },
               },
             ],
@@ -64,5 +64,16 @@ describe('App', () => {
     const renderedComponent = await Enzyme.shallow(<App />);
     await renderedComponent.update();
     expect(renderedComponent.state('pokemonSearchResults').length).toEqual(6);
+  });
+
+  it('sets the state componentDidMount on error', async () => {
+    window.fetch = jest.fn().mockImplementation(() => ({
+      status: 500,
+    }));
+    const renderedComponent = await Enzyme.shallow(<App />);
+    await renderedComponent.update();
+    expect(renderedComponent.state('errorStatus')).toEqual(
+      'Error fetching pokemon',
+    );
   });
 });
