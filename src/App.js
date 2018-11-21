@@ -3,6 +3,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import SearchResults from './components/SearchResults.jsx';
+import {makePokeApiCall} from './api_call.js';
 
 class App extends React.Component {
   constructor() {
@@ -13,14 +14,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://pokeapi.co/api/v2/type/grass/')
-      .then(response => response.json())
-      .then(results => {
-        let resultsPokeNames = results.pokemon.slice(0, 6).map(eachResult => {
-          return eachResult.pokemon.name;
-        });
-        this.setState({pokemonSearchResults: resultsPokeNames});
-      });
+    makePokeApiCall().then(pokeData =>
+      this.setState({pokemonSearchResults: pokeData}),
+    );
   }
 
   render() {
