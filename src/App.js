@@ -41,10 +41,4 @@ class App extends React.Component {
   }
 }
 
-function setPokemonResultsArray(pokemonResults) {
-  let pokemonResultsNames = [];
-  return pokemonResults.map(eachResult => {
-    pokemonResultsNames.push(eachResult);
-  });
-}
 export default App;

@@ -13,15 +13,4 @@ describe('App', () => {
     ReactDOM.render(<App />, div);
     ReactDOM.unmountComponentAtNode(div);
   });
-
-  it('sets the state componentDidMount on error', async () => {
-    window.fetch = jest.fn().mockImplementation(() => ({
-      status: 500,
-    }));
-    const renderedComponent = await Enzyme.shallow(<App />);
-    await renderedComponent.update();
-    expect(renderedComponent.state('errorStatus')).toEqual(
-      'Error fetching pokemon',
-    );
-  });
 });
