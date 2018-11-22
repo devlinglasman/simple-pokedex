@@ -7,13 +7,17 @@ function capitalize(word) {
 }
 
 function SearchResults(props) {
+  const pokeList = props.resultsPokeNames;
   return (
     <div className="searchBox">
       <ul>
-        {props.resultsPokeNames.map((element, index) => {
+        {pokeList.map((element, index) => {
           return (
-            <li className="pokemonListItem" key={index}>
-              {capitalize(element)};
+            <li className="pokemonListPokemon" key={index}>
+              <p>{capitalize(element.name)}</p>
+              <p>
+                <img src={element.sprite} />
+              </p>
             </li>
           );
         })}
