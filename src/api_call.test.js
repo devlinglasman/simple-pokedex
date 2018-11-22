@@ -119,7 +119,7 @@ it('filters the list to just pokemon Ids', () => {
       },
     ],
   };
-  const filteredData = [1, 2, 3];
+  const filteredData = ['poke-1', 'poke-2', 'poke-3'];
   expect(filterPokeIds(pokeData)).toEqual(filteredData);
 });
 

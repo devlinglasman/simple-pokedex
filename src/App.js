@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import SearchResults from './components/SearchResults.jsx';
-import {getPokeList} from './api_call.js';
+import {generateSearchResults} from './api_call.js';
 
 class App extends React.Component {
   constructor() {
@@ -15,9 +15,8 @@ class App extends React.Component {
   }
 
   async componentDidMount() {
-    getPokeList().then(pokeData =>
-      this.setState({pokemonSearchResults: pokeData}),
-    );
+    const searchResults = await generateSearchResults('grass');
+    this.setState({pokemonSearchResults: searchResults});
   }
 
   render() {
