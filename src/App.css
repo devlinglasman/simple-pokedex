@@ -10,13 +10,6 @@ img.poke-search {
   padding: 30px;
 }
 
-.searchBox {
-  display: block;
-  margin: 30px;
-  padding: 20px;
-  text-align: center;
-}
-
 .search-results-title {
   margin-left: 10%;
   font-size: 3rem;
@@ -24,16 +17,4 @@ img.poke-search {
 
 #grass {
 color: green;
-}
-
-.pokemonListItem {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  font-size: 2rem;
-}
-
-.pokemon-item-img {
-  width: 100px;
 }
