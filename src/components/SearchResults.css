@@ -1,14 +1,15 @@
-.searchBox {
+.searchResults {
   display: grid;
-  margin: 30px;
-  padding: 20px;
-  text-align: center;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.pokemonListItem {
-  display: inline-block;
-  width: 100px;
-  height: 100px;
-  margin: 20px;
-  font-size: 2rem;
+.searchResultsItem {
+  text-align: center;
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+}
+
+.searchResultsItem:hover {
+  background-color: green;
+  color: white;
 }

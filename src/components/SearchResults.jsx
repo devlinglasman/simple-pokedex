@@ -10,19 +10,17 @@ function capitalize(word) {
 function SearchResults(props) {
   const pokeList = props.resultsPokeNames;
   return (
-    <div className="searchBox">
-      <ul>
-        {pokeList.map((element, index) => {
-          return (
-            <li className="pokemonListPokemon" key={index}>
-              <p>{capitalize(element.name)}</p>
-              <p>
-                <img src={element.sprite} />
-              </p>
-            </li>
-          );
-        })}
-      </ul>
+    <div className="searchResults">
+      {pokeList.map((element, index) => {
+        return (
+          <div className="searchResultsItem" key={index}>
+            <p>{capitalize(element.name)}</p>
+            <p>
+              <img src={element.sprite} />
+            </p>
+          </div>
+        );
+      })}
     </div>
   );
 }

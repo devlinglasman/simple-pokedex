@@ -21,20 +21,14 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App poke-type-green">
         <link
           href="https://fonts.googleapis.com/css?family=Poor+Story"
           rel="stylesheet"
         />
-        <img
-          src="images/welcome-poke-image.jpg"
-          alt="pokemon-search"
-          className="poke-search"
-        />
-        <h2 className="search-results-title" id="grass">
-          Grass
-        </h2>
-        <SearchResults resultsPokeNames={this.state.pokemonSearchResults} />
+        <div className="banner" />
+        <h2 className="search-results-heading poke-type-green">Grass</h2>
+        <SearchResults className="poke-type-green" resultsPokeNames={this.state.pokemonSearchResults} />
       </div>
     );
   }

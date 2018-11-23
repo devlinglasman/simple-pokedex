@@ -10,20 +10,32 @@ it('generates list of Search Results', async () => {
     pokemon: [
       {
         pokemon: {
-          name: 'poke-1',
-          id: 1,
+          name: 'bulbasaur',
         },
       },
       {
         pokemon: {
-          name: 'poke-2',
-          id: 2,
+          name: 'ivysaur',
         },
       },
       {
         pokemon: {
-          name: 'poke-3',
-          id: 3,
+          name: 'venusaur',
+        },
+      },
+      {
+        pokemon: {
+          name: 'bulbasaur',
+        },
+      },
+      {
+        pokemon: {
+          name: 'ivysaur',
+        },
+      },
+      {
+        pokemon: {
+          name: 'venusaur',
         },
       },
     ],
@@ -68,12 +80,42 @@ it('generates list of Search Results', async () => {
       sprite:
         'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png',
     },
+    {
+      name: 'bulbasaur',
+      sprite:
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
+    },
+    {
+      name: 'ivysaur',
+      sprite:
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png',
+    },
+    {
+      name: 'venusaur',
+      sprite:
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png',
+    },
   ];
   window.fetch = jest
     .fn()
     .mockImplementationOnce(() =>
       Promise.resolve({
         json: () => Promise.resolve(typeData),
+      }),
+    )
+    .mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(pokemon1),
+      }),
+    )
+    .mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(pokemon2),
+      }),
+    )
+    .mockImplementationOnce(() =>
+      Promise.resolve({
+        json: () => Promise.resolve(pokemon3),
       }),
     )
     .mockImplementationOnce(() =>

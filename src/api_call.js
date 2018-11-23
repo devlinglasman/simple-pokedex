@@ -27,7 +27,7 @@ async function getPokemonStats(pokeId) {
 }
 
 export function filterPokeIds(pokeList) {
-  return pokeList.pokemon.slice(0, 3).map(eachResult => {
+  return pokeList.pokemon.slice(0, 6).map(eachResult => {
     return eachResult.pokemon.name;
   });
 }

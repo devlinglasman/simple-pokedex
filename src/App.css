@@ -1,20 +1,30 @@
 .App {
   font-family: 'Poor Story';
+  font-style: oblique;
+  font-weight: bold;
+  display: grid;
+  grid-template-rows: 
+    1fr [banner]
+    .5fr [search-results-heading]
+    2fr [search-results];
+  height: 100vh;
 }
 
-img.poke-search {
-  display: block;
-  margin: auto;
-  width: 400px;
-  border: 3px black;
-  padding: 30px;
+.poke-type-green {
+  background-color: #ADFF2F;
+  color: green;
 }
 
-.search-results-title {
-  margin-left: 10%;
-  font-size: 3rem;
+.banner {
+  background-image: url("images/pokemon-banner.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-style: solid;
+  border-width: medium;
 }
 
-#grass {
-color: green;
+.search-results-heading {
+  font-size: 4rem;
+  padding: 20px 0px 0px 20px;
+  font-weight: bold;
 }
