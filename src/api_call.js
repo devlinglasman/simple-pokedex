@@ -1,6 +1,6 @@
 //@format
 
-const apiPath = 'https://pokeapi.co/api/v2/';
+import GLOBALS from './globals.js';
 
 export async function generateSearchResults(pokeType) {
   const filteredTypeSet = filterPokeIds(await getTypeSet(pokeType));
@@ -11,11 +11,13 @@ export async function generateSearchResults(pokeType) {
 }
 
 async function getTypeSet(pokeType) {
-  return await (await fetch(apiPath + 'type/' + pokeType + '/')).json();
+  return await (await fetch(GLOBALS.APIHOST + 'type/' + pokeType + '/')).json();
 }
 
 async function getPokemonStats(pokeId) {
-  return await (await fetch(apiPath + 'pokemon/' + pokeId + '/')).json();
+  return await (await fetch(
+    GLOBALS.APIHOST + 'pokemon/' + pokeId + '/',
+  )).json();
 }
 
 export function filterPokeIds(pokeList) {
