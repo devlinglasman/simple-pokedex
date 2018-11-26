@@ -11,12 +11,14 @@ export async function generateSearchResults(pokeType) {
 }
 
 async function getTypeSet(pokeType) {
-  return await (await fetch(GLOBALS.APIHOST + 'type/' + pokeType + '/')).json();
+  return await (await fetch(
+    GLOBALS.API_HOST + 'type/' + pokeType + '/',
+  )).json();
 }
 
 async function getPokemonStats(pokeId) {
   return await (await fetch(
-    GLOBALS.APIHOST + 'pokemon/' + pokeId + '/',
+    GLOBALS.API_HOST + 'pokemon/' + pokeId + '/',
   )).json();
 }
 
