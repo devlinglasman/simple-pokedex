@@ -29,7 +29,7 @@ export const grassPokemonList = {
   ],
 };
 
-export const pokemon1 = {
+export const pokemon1ApiData = {
   id: 1,
   name: 'bulbasaur',
   sprites: {
@@ -37,7 +37,7 @@ export const pokemon1 = {
   },
 };
 
-export const pokemon2 = {
+export const pokemon2ApiData = {
   id: 2,
   name: 'ivysaur',
   sprites: {
@@ -45,7 +45,7 @@ export const pokemon2 = {
   },
 };
 
-export const pokemon3 = {
+export const pokemon3ApiData = {
   id: 3,
   name: 'venusaur',
   sprites: {
