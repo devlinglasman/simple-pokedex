@@ -32,10 +32,10 @@ it('filters out all but name and sprite', () => {
 it('generates list of filtered search results', async () => {
   window.fetch = jest
     .fn()
-    .mockImplementationOnce(() => resolvedJsonFetch(grassPokemonList))
-    .mockImplementationOnce(() => resolvedJsonFetch(pokemon1ApiData))
-    .mockImplementationOnce(() => resolvedJsonFetch(pokemon2ApiData))
-    .mockImplementationOnce(() => resolvedJsonFetch(pokemon3ApiData));
+    .mockResolvedValueOnce({json: () => Promise.resolve(grassPokemonList)})
+    .mockResolvedValueOnce({json: () => Promise.resolve(pokemon1ApiData)})
+    .mockResolvedValueOnce({json: () => Promise.resolve(pokemon2ApiData)})
+    .mockResolvedValueOnce({json: () => Promise.resolve(pokemon3ApiData)});
 
   const actualResults = await generateSearchResults('grass');
   expect(actualResults).toEqual(filteredResults);

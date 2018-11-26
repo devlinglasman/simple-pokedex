@@ -3,7 +3,7 @@
 import GLOBALS from '../globals.js';
 
 export function spriteURL(pokeNumber) {
-  return GLOBALS.SPRITE_URL + pokeNumber + '.png';
+  return '${GLOBALS.SPRITE_URL}${pokeNumber}.png';
 }
 
 export const searchResultsFixture = [
