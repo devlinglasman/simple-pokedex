@@ -1,11 +1,9 @@
 // @format
 
+import GLOBALS from '../globals.js';
+
 export function spriteURL(pokeNumber) {
-  return (
-    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
-    pokeNumber +
-    '.png'
-  );
+  return GLOBALS.SPRITE_URL + pokeNumber + '.png';
 }
 
 export const searchResultsFixture = [

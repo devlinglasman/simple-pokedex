@@ -1,5 +1,7 @@
 //@format
 
 export default {
-  APIHOST: 'https://pokeapi.co/api/v2/',
+  API_HOST: 'https://pokeapi.co/api/v2/',
+  SPRITE_URL:
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
 };
