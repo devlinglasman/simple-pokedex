@@ -1,6 +1,6 @@
 // @format
 
-function spriteURL(pokeNumber) {
+export function spriteURL(pokeNumber) {
   return (
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' +
     pokeNumber +
@@ -8,7 +8,7 @@ function spriteURL(pokeNumber) {
   );
 }
 
-const searchResultsFix = [
+export const searchResultsFixture = [
   {
     name: 'bulbasaur',
     sprite: spriteURL(1),
@@ -22,5 +22,3 @@ const searchResultsFix = [
     sprite: spriteURL(3),
   },
 ];
-
-export default searchResultsFix;

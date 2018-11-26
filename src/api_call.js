@@ -1,25 +1,21 @@
 //@format
 
+const apiPath = 'https://pokeapi.co/api/v2/';
+
 export async function generateSearchResults(pokeType) {
-  const typeSet = await getTypeSet(pokeType);
-  const filteredTypeSet = filterPokeIds(typeSet);
-  const pokeStatsPromises = filteredTypeSet.map(getPokemonStats);
-  const resolvedPokeStats = await Promise.all(pokeStatsPromises);
+  const filteredTypeSet = filterPokeIds(await getTypeSet(pokeType));
+  const resolvedPokeStats = await Promise.all(
+    filteredTypeSet.map(getPokemonStats),
+  );
   return resolvedPokeStats.map(filterCharacteristics);
 }
 
 async function getTypeSet(pokeType) {
-  const response = await fetch(
-    'https://pokeapi.co/api/v2/type/' + pokeType + '/',
-  );
-  return response.json();
+  return await (await fetch(apiPath + 'type/' + pokeType + '/')).json();
 }
 
 async function getPokemonStats(pokeId) {
-  const response = await fetch(
-    'https://pokeapi.co/api/v2/pokemon/' + pokeId + '/',
-  );
-  return response.json();
+  return await (await fetch(apiPath + 'pokemon/' + pokeId + '/')).json();
 }
 
 export function filterPokeIds(pokeList) {

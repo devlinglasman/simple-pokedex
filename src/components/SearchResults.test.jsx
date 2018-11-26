@@ -5,7 +5,7 @@ import SearchResults from './SearchResults';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({adapter: new Adapter()});
-import searchResultsFixture from '../__fixtures__/searchResultsFixtures.js';
+import {searchResultsFixture} from '../__fixtures__/searchResultsFixtures.js';
 
 it('should render a <div> element for every searchResultsItem in props', () => {
   const wrapper = Enzyme.shallow(
