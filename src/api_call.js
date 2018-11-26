@@ -3,13 +3,9 @@
 export async function generateSearchResults(pokeType) {
   const typeSet = await getTypeSet(pokeType);
   const filteredTypeSet = filterPokeIds(typeSet);
-  const pokeStatsPromises = filteredTypeSet.map(eachId => {
-    return getPokemonStats(eachId);
-  });
+  const pokeStatsPromises = filteredTypeSet.map(getPokemonStats);
   const resolvedPokeStats = await Promise.all(pokeStatsPromises);
-  return resolvedPokeStats.map(eachPoke => {
-    return filterCharacteristics(eachPoke);
-  });
+  return resolvedPokeStats.map(filterCharacteristics);
 }
 
 async function getTypeSet(pokeType) {
@@ -27,7 +23,7 @@ async function getPokemonStats(pokeId) {
 }
 
 export function filterPokeIds(pokeList) {
-  return pokeList.pokemon.slice(0, 6).map(eachResult => {
+  return pokeList.pokemon.slice(0, 1).map(eachResult => {
     return eachResult.pokemon.name;
   });
 }
