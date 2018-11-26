@@ -15,9 +15,7 @@ function SearchResults(props) {
         return (
           <div className="searchResultsItem" key={index}>
             <p>{capitalize(element.name)}</p>
-            <p>
-              <img src={element.sprite} />
-            </p>
+            <img src={element.sprite} />
           </div>
         );
       })}

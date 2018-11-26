@@ -7,7 +7,6 @@
     1fr [banner]
     .5fr [search-results-heading]
     2fr [search-results];
-  height: 100vh;
 }
 
 .poke-type-green {

@@ -5,52 +5,35 @@ import SearchResults from './SearchResults';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({adapter: new Adapter()});
+import searchResultsFixture from '../__fixtures__/searchResultsFixtures.js';
 
-let searchResults;
+it('should render a <div> element for every searchResultsItem in props', () => {
+  const wrapper = Enzyme.shallow(
+    <SearchResults resultsPokeNames={searchResultsFixture} />,
+  );
 
-beforeEach(() => {
-  searchResults = [
-    {
-      name: 'bulbasaur',
-      sprite:
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-    },
-    {
-      name: 'ivysaur',
-      sprite:
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-    },
-    {
-      name: 'venusaur',
-      sprite:
-        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png',
-    },
-  ];
+  expect(wrapper.find('.searchResultsItem')).toHaveLength(
+    searchResultsFixture.length,
+  );
 });
 
-it('should render an <li> element for every pokemon in props', () => {
+it('should display the Pokemon name for searchResults elements, capitalised', () => {
   const wrapper = Enzyme.shallow(
-    <SearchResults resultsPokeNames={searchResults} />,
+    <SearchResults resultsPokeNames={searchResultsFixture} />,
   );
-  expect(wrapper.find('li').length).toBe(searchResults.length);
+  const firstElement = wrapper.find('.searchResultsItem').first();
+
+  expect(firstElement.html()).toContain('Bulbasaur');
 });
 
-it('should display the Pokemon name for each <li> element, capitalised', () => {
-  const wrapper = Enzyme.shallow(
-    <SearchResults resultsPokeNames={searchResults} />,
+it('should display the sprite for searchResults elements', () => {
+  const firstElementSprite = searchResultsFixture[0].sprite;
+
+  const wrapper = Enzyme.render(
+    <SearchResults resultsPokeNames={searchResultsFixture} />,
   );
-  const firstElement = wrapper.find('li').first();
-  expect(firstElement.contains('Bulbasaur')).toEqual(true);
-});
+  const firstElement = wrapper.find('.searchResultsItem').first();
+  const firstElementImage = firstElement.find('.img').first();
 
-it('should display the sprite of each Pokemon in the list', () => {
-  const firstElementSprite = searchResults[0].sprite;
-  const imageExpected = '<p><img src=' + firstElementSprite + ' /></p>';
-
-  const wrapper = Enzyme.shallow(
-    <SearchResults resultsPokeNames={searchResults} />,
-  );
-  const firstElement = wrapper.find('li').first();
-
-  expect(firstElement.contains(imageExpected)).toEqual(true);
+  expect(firstElement.html()).toContain(firstElementSprite);
 });
