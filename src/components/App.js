@@ -4,8 +4,8 @@ import React, {Component} from 'react';
 import './App.css';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {browserHistory} from 'react-router';
-import SearchResultsPage from './SearchResultsPage';
-import WelcomePage from './WelcomePage';
+import SearchResultsPage from '../Pages/SearchResultsPage';
+import WelcomePage from '../Pages/WelcomePage';
 
 class App extends React.Component {
   render() {
@@ -21,7 +21,7 @@ class App extends React.Component {
             name="searchResults"
             exact
             path="/search/"
-            component={SearchResultsPage}
+            render={props => <SearchResultsPage typeSearched="grass" />}
           />
         </div>
       </Router>

@@ -1,13 +1,13 @@
 //@format
 
 import React, {Component} from 'react';
-import SearchResults from './SearchResults.jsx';
-import {generateSearchResults, generateListOfTypes} from '../api_call.js';
-import TypesDropdown from './Types_Dropdown.jsx';
+import SearchResults from '../Components/SearchResults';
+import {generateSearchResults, generateListOfTypes} from '../api_call';
+import TypesDropdown from '../Components/Types_Dropdown';
 
 class SearchResultsPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       errorStatus: '',
       pokemonSearchResults: [],
@@ -18,7 +18,7 @@ class SearchResultsPage extends Component {
   async componentDidMount() {
     const typeList = await generateListOfTypes();
     this.setState({typeList: typeList});
-    const searchResults = await generateSearchResults('grass');
+    const searchResults = await generateSearchResults(this.props.typeSearched);
     this.setState({pokemonSearchResults: searchResults});
   }
 
