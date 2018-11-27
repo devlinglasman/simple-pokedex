@@ -1,0 +1,29 @@
+.App {
+  font-family: 'Poor Story';
+  font-style: oblique;
+  font-weight: bold;
+  display: grid;
+  grid-template-rows: 
+    1fr [banner]
+    .5fr [search-results-heading]
+    2fr [search-results];
+}
+
+.poke-type-green {
+  background-color: #ADFF2F;
+  color: green;
+}
+
+.banner {
+  background-image: url("../images/pokemon-banner.jpeg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-style: solid;
+  border-width: medium;
+}
+
+.search-results-heading {
+  font-size: 4rem;
+  padding: 20px 0px 0px 20px;
+  font-weight: bold;
+}
