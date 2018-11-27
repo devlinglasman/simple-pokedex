@@ -7,7 +7,7 @@ export async function generateListOfTypes() {
 }
 
 async function getListOfTypes() {
-  return await (await fetch(GLOBALS.API_HOST + 'type/')).json();
+  return await (await fetch(`${GLOBALS.API_HOST}type/`)).json();
 }
 
 export function filterTypeList(listOfTypes) {
@@ -23,15 +23,11 @@ export async function generateSearchResults(pokeType) {
 }
 
 async function getTypeSet(pokeType) {
-  return await (await fetch(
-    GLOBALS.API_HOST + 'type/' + pokeType + '/',
-  )).json();
+  return await (await fetch(`${GLOBALS.API_HOST}type/${pokeType}/`)).json();
 }
 
 async function getPokemonStats(pokeId) {
-  return await (await fetch(
-    GLOBALS.API_HOST + 'pokemon/' + pokeId + '/',
-  )).json();
+  return await (await fetch(`${GLOBALS.API_HOST}pokemon/${pokeId}/`)).json();
 }
 
 export function filterPokeIds(pokeList, numberResults) {

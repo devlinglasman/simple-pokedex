@@ -7,7 +7,7 @@ function TypesDropdown(props) {
   return (
     <select className="TypesDropdown">
       {listOfTypes.map(eachType => {
-        return <option value="${eachType}">{eachType}</option>;
+        return <option value={eachType}>{eachType}</option>;
       })}
     </select>
   );
