@@ -1,31 +1,39 @@
 //@format
 
+import GLOBALS from './globals.js';
+
+export async function generateListOfTypes() {
+  return filterTypeList(await getListOfTypes());
+}
+
+async function getListOfTypes() {
+  return await (await fetch(`${GLOBALS.API_HOST}type/`)).json();
+}
+
+export function filterTypeList(listOfTypes) {
+  return listOfTypes.results.map(eachType => eachType.name);
+}
+
 export async function generateSearchResults(pokeType) {
-  const typeSet = await getTypeSet(pokeType);
-  const filteredTypeSet = filterPokeIds(typeSet);
-  const pokeStatsPromises = filteredTypeSet.map(getPokemonStats);
-  const resolvedPokeStats = await Promise.all(pokeStatsPromises);
+  const filteredTypeSet = filterPokeIds(await getTypeSet(pokeType), 6);
+  const resolvedPokeStats = await Promise.all(
+    filteredTypeSet.map(getPokemonStats),
+  );
   return resolvedPokeStats.map(filterCharacteristics);
 }
 
 async function getTypeSet(pokeType) {
-  const response = await fetch(
-    'https://pokeapi.co/api/v2/type/' + pokeType + '/',
-  );
-  return response.json();
+  return await (await fetch(`${GLOBALS.API_HOST}type/${pokeType}/`)).json();
 }
 
 async function getPokemonStats(pokeId) {
-  const response = await fetch(
-    'https://pokeapi.co/api/v2/pokemon/' + pokeId + '/',
-  );
-  return response.json();
+  return await (await fetch(`${GLOBALS.API_HOST}pokemon/${pokeId}/`)).json();
 }
 
-export function filterPokeIds(pokeList) {
-  return pokeList.pokemon.slice(0, 6).map(eachResult => {
-    return eachResult.pokemon.name;
-  });
+export function filterPokeIds(pokeList, numberResults) {
+  return pokeList.pokemon
+    .slice(0, numberResults)
+    .map(eachResult => eachResult.pokemon.name);
 }
 
 export function filterCharacteristics(pokemonData) {

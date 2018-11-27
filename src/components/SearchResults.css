@@ -1,15 +1,15 @@
-.searchResults {
+.SearchResults {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
 }
 
-.searchResultsItem {
+.SearchResultsItem {
   text-align: center;
   font-size: 1.5rem;
   transition: 0.3s ease;
 }
 
-.searchResultsItem:hover {
+.SearchResultsItem:hover {
   background-color: green;
   color: white;
 }
