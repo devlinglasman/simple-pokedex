@@ -3,11 +3,15 @@
 import {
   filterCharacteristics,
   filterPokeIds,
+  filterTypeList,
+  generateListOfTypes,
   generateSearchResults,
 } from './api_call.js';
 import {
+  filteredTypeList,
   filteredResults,
   grassPokemonList,
+  listOfTypes,
   pokemon1ApiData,
   pokemon2ApiData,
   pokemon3ApiData,
@@ -15,18 +19,13 @@ import {
 } from './__fixtures__/api_call_fixtures.js';
 import {spriteURL} from './__fixtures__/searchResultsFixtures.js';
 
-it('filters the list to just pokemon Ids', () => {
-  const filteredTypeList = [
-    grassPokemonList.pokemon[0].pokemon.name,
-    grassPokemonList.pokemon[1].pokemon.name,
-    grassPokemonList.pokemon[2].pokemon.name,
-  ];
+it('generates filtered list of types', async () => {
+  window.fetch = jest
+    .fn()
+    .mockResolvedValueOnce({json: () => Promise.resolve(listOfTypes)});
 
-  expect(filterPokeIds(grassPokemonList)).toEqual(filteredTypeList);
-});
-
-it('filters out all but name and sprite', () => {
-  expect(filterCharacteristics(pokemon1ApiData)).toEqual(filteredResults[0]);
+  const actualResults = await generateListOfTypes();
+  expect(actualResults).toEqual(filteredTypeList);
 });
 
 it('generates list of filtered search results', async () => {
@@ -39,4 +38,22 @@ it('generates list of filtered search results', async () => {
 
   const actualResults = await generateSearchResults('grass');
   expect(actualResults).toEqual(filteredResults);
+});
+
+it('filters the list of types to a list of type names only', () => {
+  expect(filterTypeList(listOfTypes)).toEqual(filteredTypeList);
+});
+
+it('filters the list to just pokemon Ids', () => {
+  const filteredGrassPokemon = [
+    grassPokemonList.pokemon[0].pokemon.name,
+    grassPokemonList.pokemon[1].pokemon.name,
+    grassPokemonList.pokemon[2].pokemon.name,
+  ];
+
+  expect(filterPokeIds(grassPokemonList)).toEqual(filteredGrassPokemon);
+});
+
+it('filters out all but name and sprite', () => {
+  expect(filterCharacteristics(pokemon1ApiData)).toEqual(filteredResults[0]);
 });

@@ -2,11 +2,29 @@
 
 import {spriteURL} from './searchResultsFixtures.js';
 
-export function resolvedJsonFetch(data) {
-  return Promise.resolve({
-    json: () => Promise.resolve(data),
-  });
-}
+export const listOfTypes = {
+  count: 20,
+  results: [
+    {
+      name: 'normal',
+      url: 'https://pokeapi.co/api/v2/type/1/',
+    },
+    {
+      name: 'fighting',
+      url: 'https://pokeapi.co/api/v2/type/2/',
+    },
+    {
+      name: 'flying',
+      url: 'https://pokeapi.co/api/v2/type/3/',
+    },
+  ],
+};
+
+export const filteredTypeList = [
+    listOfTypes.results[0].name,
+    listOfTypes.results[1].name,
+    listOfTypes.results[2].name,
+  ];
 
 export const grassPokemonList = {
   id: 5,

@@ -10,10 +10,10 @@ function capitalize(word) {
 function SearchResults(props) {
   const pokeList = props.resultsPokeNames;
   return (
-    <div className="searchResults">
+    <div className="SearchResults">
       {pokeList.map((element, index) => {
         return (
-          <div className="searchResultsItem" key={index}>
+          <div className="SearchResultsItem" key={index}>
             <p>{capitalize(element.name)}</p>
             <img src={element.sprite} />
           </div>

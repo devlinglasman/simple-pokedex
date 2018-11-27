@@ -3,7 +3,8 @@
 import React, {Component} from 'react';
 import './App.css';
 import SearchResults from './components/SearchResults.jsx';
-import {generateSearchResults} from './api_call.js';
+import {generateSearchResults, generateListOfTypes} from './api_call.js';
+import TypesDropdown from './components/Types_Dropdown.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -11,10 +12,13 @@ class App extends React.Component {
     this.state = {
       errorStatus: '',
       pokemonSearchResults: [],
+      typeList: [],
     };
   }
 
   async componentDidMount() {
+    const typeList = await generateListOfTypes();
+    this.setState({typeList: typeList});
     const searchResults = await generateSearchResults('grass');
     this.setState({pokemonSearchResults: searchResults});
   }
@@ -27,8 +31,9 @@ class App extends React.Component {
           rel="stylesheet"
         />
         <div className="banner" />
+        <TypesDropdown listOfTypes={this.state.typeList} />
         <h2 className="search-results-heading poke-type-green">Grass</h2>
-        <SearchResults className="poke-type-green" resultsPokeNames={this.state.pokemonSearchResults} />
+        <SearchResults resultsPokeNames={this.state.pokemonSearchResults} />
       </div>
     );
   }

@@ -2,8 +2,20 @@
 
 import GLOBALS from './globals.js';
 
+export async function generateListOfTypes() {
+  return filterTypeList(await getListOfTypes());
+}
+
+async function getListOfTypes() {
+  return await (await fetch(GLOBALS.API_HOST + 'type/')).json();
+}
+
+export function filterTypeList(listOfTypes) {
+  return listOfTypes.results.map(eachType => eachType.name);
+}
+
 export async function generateSearchResults(pokeType) {
-  const filteredTypeSet = filterPokeIds(await getTypeSet(pokeType));
+  const filteredTypeSet = filterPokeIds(await getTypeSet(pokeType), 6);
   const resolvedPokeStats = await Promise.all(
     filteredTypeSet.map(getPokemonStats),
   );
@@ -22,10 +34,10 @@ async function getPokemonStats(pokeId) {
   )).json();
 }
 
-export function filterPokeIds(pokeList) {
-  return pokeList.pokemon.slice(0, 6).map(eachResult => {
-    return eachResult.pokemon.name;
-  });
+export function filterPokeIds(pokeList, numberResults) {
+  return pokeList.pokemon
+    .slice(0, numberResults)
+    .map(eachResult => eachResult.pokemon.name);
 }
 
 export function filterCharacteristics(pokemonData) {
