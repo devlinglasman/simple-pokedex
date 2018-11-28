@@ -6,4 +6,5 @@ export default {
     'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
   capitalise: word =>
     word.charAt(0).toUpperCase() + word.slice(1).toLowerCase(),
+  removeFirstPathPart: path => path.replace('/type/', ''),
 };

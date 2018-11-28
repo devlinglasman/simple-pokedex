@@ -12,13 +12,14 @@ class SearchResultsPage extends Component {
     this.state = {
       errorStatus: '',
       pokemonSearchResults: [],
+      typeSearched: GLOBALS.removeFirstPathPart(
+        `${this.props.location.pathname}`,
+      ),
     };
   }
 
   async componentDidMount() {
-    const searchResults = await generateSearchResults(
-      this.props.location.state.typeSearched,
-    );
+    const searchResults = await generateSearchResults(this.state.typeSearched);
     this.setState({pokemonSearchResults: searchResults});
   }
 
@@ -27,7 +28,7 @@ class SearchResultsPage extends Component {
       <div className="App">
         <div className="banner" />
         <h2 className="search-results-heading">
-          {GLOBALS.capitalise(this.props.location.state.typeSearched)}
+          {GLOBALS.capitalise(this.state.typeSearched)}
         </h2>
         <SearchResults resultsPokeNames={this.state.pokemonSearchResults} />
       </div>

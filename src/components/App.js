@@ -25,7 +25,6 @@ class App extends React.Component {
             />
             <Route
               name="type"
-              exact
               path="/type"
               render={props => <SearchResultsPage {...props} />}
             />
