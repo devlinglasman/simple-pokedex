@@ -22,7 +22,10 @@ class TypesDropdown extends Component {
   }
 
   handleChange = event => {
-    this.props.history.push('/searchResults');
+    this.props.history.push({
+      pathname: '/searchResults',
+      state: {typeSearched: event.target.value},
+    });
   };
 
   render() {

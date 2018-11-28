@@ -27,7 +27,7 @@ class App extends React.Component {
               name="searchResults"
               exact
               path="/searchResults"
-              render={props => <SearchResultsPage typeSearched="grass" />}
+              render={props => <SearchResultsPage {...props} />}
             />
           </div>
         </Switch>

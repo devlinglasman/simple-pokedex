@@ -11,14 +11,13 @@ class SearchResultsPage extends Component {
     this.state = {
       errorStatus: '',
       pokemonSearchResults: [],
-      typeList: [],
     };
   }
 
   async componentDidMount() {
-    const typeList = await generateListOfTypes();
-    this.setState({typeList: typeList});
-    const searchResults = await generateSearchResults(this.props.typeSearched);
+    const searchResults = await generateSearchResults(
+      this.props.location.state.typeSearched,
+    );
     this.setState({pokemonSearchResults: searchResults});
   }
 
@@ -26,7 +25,6 @@ class SearchResultsPage extends Component {
     return (
       <div className="App poke-type-green">
         <div className="banner" />
-        <TypesDropdown listOfTypes={this.state.typeList} />
         <h2 className="search-results-heading poke-type-green">Grass</h2>
         <SearchResults resultsPokeNames={this.state.pokemonSearchResults} />
       </div>
