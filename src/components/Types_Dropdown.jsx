@@ -21,7 +21,7 @@ class TypesDropdown extends Component {
 
   handleChange = event => {
     this.props.history.push({
-      pathname: '/searchResults',
+      pathname: '/type',
       state: {typeSearched: event.target.value},
     });
   };

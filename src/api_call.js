@@ -39,6 +39,10 @@ export function filterPokeIds(pokeList, numberResults) {
 export function filterCharacteristics(pokemonData) {
   return {
     name: pokemonData.name,
+    height: pokemonData.height,
+    weight: pokemonData.weight,
+    abilities: pokemonData.abilities[0].ability.name,
     sprite: pokemonData.sprites.front_default,
+    type: pokemonData.types[0].type.name,
   };
 }

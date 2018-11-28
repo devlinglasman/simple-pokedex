@@ -24,9 +24,9 @@ class App extends React.Component {
               render={props => <WelcomePage {...props} />}
             />
             <Route
-              name="searchResults"
+              name="type"
               exact
-              path="/searchResults"
+              path="/type"
               render={props => <SearchResultsPage {...props} />}
             />
           </div>

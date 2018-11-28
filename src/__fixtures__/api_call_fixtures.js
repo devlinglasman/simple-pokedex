@@ -21,10 +21,10 @@ export const listOfTypes = {
 };
 
 export const filteredTypeList = [
-    listOfTypes.results[0].name,
-    listOfTypes.results[1].name,
-    listOfTypes.results[2].name,
-  ];
+  listOfTypes.results[0].name,
+  listOfTypes.results[1].name,
+  listOfTypes.results[2].name,
+];
 
 export const grassPokemonList = {
   id: 5,
@@ -50,38 +50,62 @@ export const grassPokemonList = {
 export const pokemon1ApiData = {
   id: 1,
   name: 'bulbasaur',
+  height: 11,
+  weight: 300,
+  abilities: [{ability: {name: 'ability-1'}}],
   sprites: {
     front_default: spriteURL(1),
   },
+  types: [{type: {name: 'flying'}}],
 };
 
 export const pokemon2ApiData = {
   id: 2,
   name: 'ivysaur',
+  height: 11,
+  weight: 300,
+  abilities: [{ability: {name: 'ability-1'}}],
   sprites: {
     front_default: spriteURL(2),
   },
+  types: [{type: {name: 'flying'}}],
 };
 
 export const pokemon3ApiData = {
   id: 3,
   name: 'venusaur',
+  height: 11,
+  weight: 300,
+  abilities: [{ability: {name: 'ability-1'}}],
   sprites: {
     front_default: spriteURL(3),
   },
+  types: [{type: {name: 'flying'}}],
 };
 
 export const filteredResults = [
   {
-    name: 'bulbasaur',
-    sprite: spriteURL(1),
+    name: pokemon1ApiData.name,
+    height: pokemon1ApiData.height,
+    weight: pokemon1ApiData.weight,
+    abilities: pokemon1ApiData.abilities[0].ability.name,
+    sprite: pokemon1ApiData.sprites.front_default,
+    type: pokemon1ApiData.types[0].type.name,
   },
   {
-    name: 'ivysaur',
-    sprite: spriteURL(2),
+    name: pokemon2ApiData.name,
+    height: pokemon2ApiData.height,
+    weight: pokemon2ApiData.weight,
+    abilities: pokemon2ApiData.abilities[0].ability.name,
+    sprite: pokemon2ApiData.sprites.front_default,
+    type: pokemon2ApiData.types[0].type.name,
   },
   {
-    name: 'venusaur',
-    sprite: spriteURL(3),
+    name: pokemon3ApiData.name,
+    height: pokemon3ApiData.height,
+    weight: pokemon3ApiData.weight,
+    abilities: pokemon3ApiData.abilities[0].ability.name,
+    sprite: pokemon3ApiData.sprites.front_default,
+    type: pokemon3ApiData.types[0].type.name,
   },
 ];

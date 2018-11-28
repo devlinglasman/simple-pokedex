@@ -54,6 +54,6 @@ it('filters the list to just pokemon Ids', () => {
   expect(filterPokeIds(grassPokemonList)).toEqual(filteredGrassPokemon);
 });
 
-it('filters out all but name and sprite', () => {
+it('extracts required characteristics from a set of Pokemon data', () => {
   expect(filterCharacteristics(pokemon1ApiData)).toEqual(filteredResults[0]);
 });
