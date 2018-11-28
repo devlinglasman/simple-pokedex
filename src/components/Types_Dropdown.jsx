@@ -31,8 +31,12 @@ class TypesDropdown extends Component {
       <label>
         Pick a Pokemon type!
         <select value={this.state.value} onChange={this.handleChange}>
-          {this.state.typeList.map(eachType => {
-            return <option value={eachType}>{eachType}</option>;
+          {this.state.typeList.map((eachType, index) => {
+            return (
+              <option value={eachType} key={index}>
+                {eachType}
+              </option>
+            );
           })}
         </select>
       </label>

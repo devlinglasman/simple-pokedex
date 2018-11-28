@@ -24,9 +24,9 @@ class SearchResultsPage extends Component {
 
   render() {
     return (
-      <div className="App poke-type-green">
+      <div className="App">
         <div className="banner" />
-        <h2 className="search-results-heading poke-type-green">
+        <h2 className="search-results-heading">
           {GLOBALS.capitalise(this.props.location.state.typeSearched)}
         </h2>
         <SearchResults resultsPokeNames={this.state.pokemonSearchResults} />
