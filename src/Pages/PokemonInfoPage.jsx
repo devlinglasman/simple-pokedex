@@ -24,8 +24,14 @@ class PokemonInfoPage extends Component {
     return (
       <div className="PokeInfo">
         <div className="banner" />
-        <h2>{GLOBALS.capitalise(this.state.name)}</h2>
-        <h2>{this.state.characteristics.height}</h2>
+        <h1>{GLOBALS.capitalise(this.state.name)}</h1>
+        <div className="pokeCharas">
+          <img src={this.state.characteristics.sprite} />
+          <p>Height: {this.state.characteristics.height}</p>
+          <p>Weight: {this.state.characteristics.weight}</p>
+          <p>Ability: {this.state.characteristics.abilities}</p>
+          <p>Type: {this.state.characteristics.type}</p>
+        </div>
       </div>
     );
   }
