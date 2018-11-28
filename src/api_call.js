@@ -2,6 +2,9 @@
 
 import GLOBALS from './globals.js';
 
+export async function generateIndividualPoke(name) {
+  return filterCharacteristics(await getPokemonStats(name));
+}
 export async function generateListOfTypes() {
   return filterTypeList(await getListOfTypes());
 }
@@ -26,8 +29,8 @@ async function getTypeSet(pokeType) {
   return await (await fetch(`${GLOBALS.API_HOST}type/${pokeType}/`)).json();
 }
 
-async function getPokemonStats(pokeId) {
-  return await (await fetch(`${GLOBALS.API_HOST}pokemon/${pokeId}/`)).json();
+async function getPokemonStats(name) {
+  return await (await fetch(`${GLOBALS.API_HOST}pokemon/${name}/`)).json();
 }
 
 export function filterPokeIds(pokeList, numberResults) {

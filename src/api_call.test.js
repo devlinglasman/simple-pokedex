@@ -6,6 +6,7 @@ import {
   filterTypeList,
   generateListOfTypes,
   generateSearchResults,
+  generateIndividualPoke,
 } from './api_call.js';
 import {
   filteredTypeList,
@@ -18,6 +19,15 @@ import {
   resolvedJsonFetch,
 } from './__fixtures__/api_call_fixtures.js';
 import {spriteURL} from './__fixtures__/searchResultsFixtures.js';
+
+it('generates filtered individual pokemon characteristics', async () => {
+  window.fetch = jest
+    .fn()
+    .mockResolvedValueOnce({json: () => Promise.resolve(pokemon1ApiData)});
+
+  const actualResults = await generateIndividualPoke(pokemon1ApiData.name);
+  expect(actualResults).toEqual(filteredResults[0]);
+});
 
 it('generates filtered list of types', async () => {
   window.fetch = jest

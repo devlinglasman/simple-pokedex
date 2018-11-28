@@ -7,7 +7,7 @@ class PokemonInfoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: this.props.location.state.name,
+      name: GLOBALS.removeFirstPathPart(`${this.props.location.pathname}`),
     };
   }
 
