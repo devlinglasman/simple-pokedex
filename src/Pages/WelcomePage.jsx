@@ -7,19 +7,6 @@ import {generateListOfTypes} from '../api_call';
 import TypesDropdown from '../Components/Types_Dropdown';
 
 class WelcomePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      errorStatus: '',
-      typeList: [],
-    };
-  }
-
-  async componentDidMount() {
-    const typeList = await generateListOfTypes();
-    this.setState({typeList: typeList});
-  }
-
   render() {
     return (
       <div>

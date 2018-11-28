@@ -2,10 +2,7 @@
 
 import React from 'react';
 import './SearchResults.css';
-
-function capitalize(word) {
-  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
-}
+import GLOBALS from '../globals.js';
 
 function SearchResults(props) {
   const pokeList = props.resultsPokeNames;
@@ -14,7 +11,7 @@ function SearchResults(props) {
       {pokeList.map((element, index) => {
         return (
           <div className="SearchResultsItem" key={index}>
-            <p>{capitalize(element.name)}</p>
+            <p>{GLOBALS.capitalise(element.name)}</p>
             <img src={element.sprite} />
           </div>
         );

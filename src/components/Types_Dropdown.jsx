@@ -12,8 +12,6 @@ class TypesDropdown extends Component {
       typeList: [],
       value: 'grass',
     };
-
-    this.handleChange = this.handleChange.bind(this);
   }
 
   async componentDidMount() {
