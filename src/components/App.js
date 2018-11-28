@@ -6,6 +6,7 @@ import {Switch, BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import {browserHistory} from 'react-router';
 import SearchResultsPage from '../Pages/SearchResultsPage';
 import WelcomePage from '../Pages/WelcomePage';
+import PokemonInfoPage from '../Pages/PokemonInfoPage';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,11 @@ class App extends React.Component {
               name="type"
               path="/type"
               render={props => <SearchResultsPage {...props} />}
+            />
+            <Route
+              name="pokemon"
+              path="/pokemon"
+              render={props => <PokemonInfoPage {...props} />}
             />
           </div>
         </Switch>
