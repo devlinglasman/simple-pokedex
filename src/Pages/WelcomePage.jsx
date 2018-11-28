@@ -7,8 +7,8 @@ import {generateListOfTypes} from '../api_call';
 import TypesDropdown from '../Components/Types_Dropdown';
 
 class WelcomePage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       errorStatus: '',
       typeList: [],
@@ -27,9 +27,7 @@ class WelcomePage extends Component {
         <h1>Welcome to your Pokedex!</h1>
         <div>
           <h2>Search</h2>
-          <Link to="/search/">
-            <TypesDropdown listOfTypes={this.state.typeList} />
-          </Link>
+          <TypesDropdown {...this.props} />
         </div>
       </div>
     );
