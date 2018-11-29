@@ -20,8 +20,10 @@ class SearchResultsPage extends Component {
   }
 
   async componentDidMount() {
-    const searchResults = await generateSearchResults(this.state.typeSearched);
-    this.setState({pokemonSearchResults: searchResults});
+    const filteredPokemon = await generateSearchResults(
+      this.state.typeSearched,
+    );
+    this.setState({pokemonSearchResults: filteredPokemon});
   }
 
   render() {
