@@ -12,12 +12,14 @@ function SearchResults(props) {
         const path = `/pokemon/${poke.name}`;
         return (
           <div>
-            <Link to={path}>
-              <div className="SearchResultsItem" key={index}>
-                <p>{GLOBALS.capitalise(poke.name)}</p>
-                <img src={poke.sprite} />
-              </div>
-            </Link>
+            <Router>
+              <Link to={path}>
+                <div className="SearchResultsItem" key={index}>
+                  <p>{GLOBALS.capitalise(poke.name)}</p>
+                  <img src={poke.sprite} />
+                </div>
+              </Link>
+            </Router>
           </div>
         );
       })}
