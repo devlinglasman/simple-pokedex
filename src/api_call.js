@@ -44,8 +44,10 @@ export function filterCharacteristics(pokemonData) {
     name: pokemonData.name,
     height: pokemonData.height,
     weight: pokemonData.weight,
-    abilities: pokemonData.abilities[0].ability.name,
+    abilities: pokemonData.abilities.map(
+      eachAbility => eachAbility.ability.name,
+    ),
     sprite: pokemonData.sprites.front_default,
-    type: pokemonData.types[0].type.name,
+    types: pokemonData.types.map(eachType => eachType.type.name),
   };
 }

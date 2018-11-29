@@ -52,11 +52,11 @@ export const pokemon1ApiData = {
   name: 'bulbasaur',
   height: 11,
   weight: 300,
-  abilities: [{ability: {name: 'ability-1'}}],
+  abilities: [{ability: {name: 'ability-1'}}, {ability: {name: 'ability-2'}}],
   sprites: {
     front_default: spriteURL(1),
   },
-  types: [{type: {name: 'flying'}}],
+  types: [{type: {name: 'grass'}}, {type: {name: 'flying'}}],
 };
 
 export const pokemon2ApiData = {
@@ -64,11 +64,19 @@ export const pokemon2ApiData = {
   name: 'ivysaur',
   height: 11,
   weight: 300,
-  abilities: [{ability: {name: 'ability-1'}}],
+  abilities: [
+    {ability: {name: 'ability-1'}},
+    {ability: {name: 'ability-2'}},
+    {ability: {name: 'ability-3'}},
+  ],
   sprites: {
     front_default: spriteURL(2),
   },
-  types: [{type: {name: 'flying'}}],
+  types: [
+    {type: {name: 'flying'}},
+    {type: {name: 'grass'}},
+    {type: {name: 'poison'}},
+  ],
 };
 
 export const pokemon3ApiData = {
@@ -88,24 +96,38 @@ export const filteredResults = [
     name: pokemon1ApiData.name,
     height: pokemon1ApiData.height,
     weight: pokemon1ApiData.weight,
-    abilities: pokemon1ApiData.abilities[0].ability.name,
+    abilities: [
+      pokemon1ApiData.abilities[0].ability.name,
+      pokemon1ApiData.abilities[1].ability.name,
+    ],
     sprite: pokemon1ApiData.sprites.front_default,
-    type: pokemon1ApiData.types[0].type.name,
+    types: [
+      pokemon1ApiData.types[0].type.name,
+      pokemon1ApiData.types[1].type.name,
+    ],
   },
   {
     name: pokemon2ApiData.name,
     height: pokemon2ApiData.height,
     weight: pokemon2ApiData.weight,
-    abilities: pokemon2ApiData.abilities[0].ability.name,
+    abilities: [
+      pokemon2ApiData.abilities[0].ability.name,
+      pokemon2ApiData.abilities[1].ability.name,
+      pokemon2ApiData.abilities[2].ability.name,
+    ],
     sprite: pokemon2ApiData.sprites.front_default,
-    type: pokemon2ApiData.types[0].type.name,
+    types: [
+      pokemon2ApiData.types[0].type.name,
+      pokemon2ApiData.types[1].type.name,
+      pokemon2ApiData.types[2].type.name,
+    ],
   },
   {
     name: pokemon3ApiData.name,
     height: pokemon3ApiData.height,
     weight: pokemon3ApiData.weight,
-    abilities: pokemon3ApiData.abilities[0].ability.name,
+    abilities: [pokemon3ApiData.abilities[0].ability.name],
     sprite: pokemon3ApiData.sprites.front_default,
-    type: pokemon3ApiData.types[0].type.name,
+    types: [pokemon3ApiData.types[0].type.name],
   },
 ];
